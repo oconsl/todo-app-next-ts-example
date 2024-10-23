@@ -1,9 +1,9 @@
 import { TodoEditView } from '@/sections/todo'
 
 interface TaskEditPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function TaskEditPage ({ params }: TaskEditPageProps) {

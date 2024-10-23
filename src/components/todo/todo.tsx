@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Trash2, Edit2, Check } from 'lucide-react'
+import { Trash2, Edit2, Check, Eye } from 'lucide-react'
 import type { Todo } from '@/types/todo'
 
 interface TodoProps {
@@ -34,6 +34,12 @@ export default function Todo ({ task, onDelete, onToggle }: TodoProps) {
           ${task.done ? 'bg-green-600' : 'bg-purple-600'}`}>
           Prioridad: {task.priority}
         </span>
+
+        <Link href={`/task/${task.id}`}
+          onClick={(e) => e.stopPropagation()}
+          className="p-2 hover:bg-gray-700 rounded-full transition-colors">
+          <Eye size={16} className="text-gray-300 hover:text-white" />
+        </Link>
 
         <Link href={`/task/${task.id}/edit`}
           onClick={(e) => e.stopPropagation()}
